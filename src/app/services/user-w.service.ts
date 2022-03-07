@@ -1,0 +1,100 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserWService {
+	quote:any={};
+	admin:boolean;
+	adminName:string;
+	affiliate:boolean;
+	allLoaded:boolean=false;
+	appointmentSubmitted:boolean=false;
+	assBook:any={};
+	assValidation:any={};
+	bandera:string;
+	book:any={};
+	bookToCancel:any={};
+	botas:boolean=false;
+	car:any[]=[];
+	card:any={};
+	cardsResult:any[]=[];
+	currency:number=1;
+		comision:number=1;
+		amount:number=0;
+		paypal:boolean=false;
+		zelle:boolean=false;
+	categorySelected:string;
+	contact:any={};
+	editingTrek:boolean=false;
+	errorFormAffiliate:boolean;
+	errorFormAddtixs:boolean;	
+	errorFormSendContact:boolean;
+	errorFormPartner:boolean;
+	errorFormSendSale:boolean;
+	errorFormSendOrder:boolean;
+	errorFormOne:boolean;
+	errorFormTwo:boolean;
+	errorFormThree:boolean;
+	errorFormPago:boolean;
+	feet:number=0;
+	file:any[]=[];
+	filter:boolean=false;
+	foredit:any={};
+	globalCategory:boolean=true;
+	idCard:string;
+	imagePreviewProduct:string;
+	emailAdmin:string;
+	images:any[]=[];
+	info:any={};
+	isLogged:boolean=false;
+	loaded:boolean=false;
+	method:string;
+	moccs:boolean=false;
+	name:string;
+	numProd:number=0;
+	order:any={};
+	orderPro:any={};
+	pagoImage:any[]=[];
+	pedido:any={};
+	partner:boolean;
+	queue:any[]=[];
+	quoteSubmitted:boolean=false;
+	recargo:boolean=false;
+	selectorA:boolean;
+	selectorB:boolean;
+	showAll:boolean=false;
+	subTotal:number=0;
+	tixs:any[]=[];
+	tixPreview:any={};
+	tixsOrigin:any[]=[];
+	tixsDiscount:any={};
+	tixsNew:any={};
+	total:number=0;
+	totalBooks:number;
+	totalDiscount:number=0;
+	totalNew:number=0;
+	totalProducts:number=0;
+	totalTixs:number;
+	type:string;
+	typeOne:boolean=false;
+	typeTwo:boolean=false;
+	typeThree:boolean=false;
+	typeFour:boolean=false;
+	typeFive:boolean=false;
+	typeSix:boolean=false;
+	typeGlobal:boolean=false;
+	typeSize:boolean=false;
+	user:any={};
+	userd:string;
+	usersPending:boolean;
+	userW:any[]=[];
+	validation:any={};
+	validationEmail:any={};
+	validationToDelete:any={};
+	zapatos:boolean=false;
+	// book:any[]=[];
+  constructor() { }
+}
+
+

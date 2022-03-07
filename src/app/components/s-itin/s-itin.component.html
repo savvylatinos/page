@@ -1,0 +1,240 @@
+
+<section class="contact-page" style="padding: 150px 0px 90px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline">ITIN</span>
+                        <h2 class="section-title__title">Registre<br> su ITIN.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9">
+                <div class="section-title">
+                        
+                        <h2 class="section-title__title"[hidden]="steep!=0">Sobre su empresa LLC</h2>
+                        <h2 class="section-title__title"[hidden]="steep!=1">Encargados de la empresa
+                            Socios</h2>
+                        <h2 class="section-title__title"[hidden]="steep!=2">Persona responsable</h2>
+                        <!-- <h2 class="section-title__title" [hidden]="steep!=3">Persona responsable </h2> -->
+                    <p [hidden]="steep!=2">Esta es la persona responsable que se muestra en el número de identificación fiscal, cuenta bancaria y otros documentos.</p>
+                 </div>
+                <div class="contact-page__right">
+                    <form  (ngSubmit) ="checkOne()"  [formGroup]="ngFormOne"  [hidden]="steep!=0" action="" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Nombres</label>
+                                    <input type="text" class="form-control floating" id="name" placeholder="Nombres" formControlName="name" [(ngModel)]="quote.name"required [ngClass]="{ 'is-invalid': submitted && fval.name.errors }">
+                                    <div *ngIf="submitted && fval.name.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.name.errors.required">El nombre es un campo obligatorio</div>
+                                    </div>
+                                                         
+                                   
+
+                                   
+                                </div>
+                              
+                            </div>
+                           
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Apellidos</label>
+                                    <input type="text" class="form-control floating" id="surName" placeholder="Apellidos" formControlName="surName" [(ngModel)]="quote.surName"required [ngClass]="{ 'is-invalid': submitted && fval.surName.errors }">
+                                    <div *ngIf="submitted && fval.surName.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.surName.errors.required">Los apellidos son un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box"  >
+                                    <label class="control-label"style="font-size: 18px;" >
+                                        <span style="color: red;">*</span>
+                                         Email</label>
+                                         <input type="text" class="form-control floating" id="email" placeholder="Email" formControlName="email" [(ngModel)]="quote.email"required [ngClass]="{ 'is-invalid': submitted && fval.email.errors }">
+                                   
+                                      <span class="required"></span>
+                                      <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                                          <div *ngIf="fval.email.errors.required" class="errorLabel">
+                                           El email es un campo obligatorio                                          </div>
+                                      </div>
+                                  </div>
+                                
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Teléfono</label>
+                                    <input type="text" class="form-control floating" id="phone" placeholder="Teléfono" formControlName="phone" [(ngModel)]="quote.phone"required [ngClass]="{ 'is-invalid': submitted && fval.phone.errors }">
+                                    <div *ngIf="submitted && fval.phone.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.phone.errors.required">El teléfono es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="form-group comment-form__input-box"  >
+                                    <label class="control-label"style="font-size: 18px;" >
+                                        <span style="color: red;">*</span>
+                                        Dirección donde recibirá su ITIN (Dentro de estados unidos)</label>
+                                         <input type="text" class="form-control floating" id="localAddress" placeholder="Direción en EEUU" formControlName="localAddress" [(ngModel)]="quote.localAddress"required [ngClass]="{ 'is-invalid': submitted && fval.localAddress.errors }">
+
+                                      <span class="required"></span>
+                                      <div *ngIf="submitted && fval.localAddress.errors" class="invalid-feedback">
+                                          <div *ngIf="fval.localAddress.errors.required" class="errorLabel">
+                                           La dirección local es un campo obligatorio  </div>
+                                      </div>
+                                  </div>
+                                
+                            </div>
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="form-group comment-form__input-box"  >
+                                    <label class="control-label"style="font-size: 18px;" >
+                                        <span style="color: red;">*</span>
+                                        Dirección fuera de estados unidos</label>
+                                         <input type="text" class="form-control floating" id="Dirección" placeholder="External Address" formControlName="externalAddress" [(ngModel)]="quote.externalAddress"required [ngClass]="{ 'is-invalid': submitted && fval.externalAddress.errors }">
+
+                                      <span class="required"></span>
+                                      <div *ngIf="submitted && fval.externalAddress.errors" class="invalid-feedback">
+                                          <div *ngIf="fval.externalAddress.errors.required" class="errorLabel">
+                                         La dirección externa es un campo obligatorio                                          </div>
+                                      </div>
+                                  </div>
+                                  <div style="text-align: right; ">
+                                    <!-- <button  class="thm-btn comment-form__btn" (click)="back(steep)"> Atras</button> -->
+                                    <button type="submit" class="thm-btn comment-form__btn"><a >Siguiente</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <form  [formGroup]="ngFormTwo"  [hidden]="steep!=1" action=""  class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-4">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Pais</label>
+                                    <input type="text" class="form-control floating" id="country" placeholder="Pais" formControlName="country" [(ngModel)]="quote.country"required [ngClass]="{ 'is-invalid': submitted2 && fval2.country.errors }">
+                                    <div *ngIf="submitted2 && fval2.country.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.country.errors.required">El pais es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Ciudad</label>
+                                    <input type="text" class="form-control floating" id="city" placeholder="Ciudad" formControlName="city" [(ngModel)]="quote.city"required [ngClass]="{ 'is-invalid': submitted2 && fval2.city.errors }">
+                                    <div *ngIf="submitted2 && fval2.city.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.city.errors.required">La ciudad es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Genero</label>
+                                        <div class="col-lg-12 btn-group" dropdown>
+                                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                                    aria-controls="dropdown-basic">
+                                                    {{gender}} <span class="caret"></span>
+                                            </button>
+                                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                                role="menu" aria-labelledby="button-basic">
+                                              <li role="menuitem" *ngFor="let item  of genders;let i = index" (click)="setType(item,i)"  style="cursor: pointer !important;"><a class="dropdown-item" >{{item.name}}</a></li>
+                                            
+                                            </ul>
+                                          </div>
+                                    <!-- <input type="text" class="form-control floating" id="gender" placeholder="Femenino / Masculino" formControlName="gender" [(ngModel)]="quote.gender"required [ngClass]="{ 'is-invalid': submitted2 && fval2.gender.errors }">
+                                    <div *ngIf="submitted2 && fval2.gender.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.gender.errors.required">El género es un campo obligatorio</div>
+                                    </div> -->
+                                    
+                                </div>                             
+                            </div>
+                           
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Número de pasaporte</label>
+                                    <input type="text" class="form-control floating" id="passportNumber" placeholder="Número de pasaporte" formControlName="passportNumber" [(ngModel)]="quote.passportNumber"required [ngClass]="{ 'is-invalid': submitted2 && fval2.passportNumber.errors }">
+                                    <div *ngIf="submitted2 && fval2.passportNumber.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.passportNumber.errors.required">Indique por favor el nombre de un socio</div>
+                                    </div>
+                                </div>                             
+                            </div>   
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        País de expedicion</label> 
+                                    <input type="text" class="form-control floating" id="countryExp" placeholder="Pais de expedición" formControlName="countryExp" [(ngModel)]="quote.countryExp"required [ngClass]="{ 'is-invalid': submitted2 && fval2.countryExp.errors }">
+                                    <div *ngIf="submitted2 && fval2.countryExp.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.countryExp.errors.required">El país es un campo obligatorio</div>
+                                    </div>
+                                </div>                             
+                            </div>   
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Fecha de expiración</label> 
+                                    <!-- <input type="text" class="form-control floating" id="expirateDate" placeholder="Fecha de expiración" formControlName="expirateDate" [(ngModel)]="quote.expirateDate"required [ngClass]="{ 'is-invalid': submitted2 && fval2.expirateDate.errors }">
+                                    <div *ngIf="submitted2 && fval2.expirateDate.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.expirateDate.errors.required">La fecha de expiración es un campo obligatorio</div>
+                                    </div> -->
+                                    <h4> <span style="font-weight: 100; margin-left: 20px;">{{ selDate.date }}-{{ selDate.month + 1}}-{{ selDate.year }} </span></h4>
+
+                            
+                                    <p></p>
+                                  <xunk-calendar [selectedDate]="selDate"></xunk-calendar>
+                  
+                                </div>                             
+                            </div>  
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Ultima entrada a los Estados Unidos</label> 
+                                    <!-- <input type="text" class="form-control floating" id="lastTime" placeholder="Ultima vez" formControlName="lastTime" [(ngModel)]="quote.lastTime"required [ngClass]="{ 'is-invalid': submitted2 && fval2.lastTime.errors }">
+                                    <div *ngIf="submitted2 && fval2.lastTime.errors" class="invalid-feedback">
+                                        <div *ngIf="fval2.lastTime.errors.required">Indique por favor la ultima vez</div>
+                                    </div> -->
+                                    <h3> <span style="font-weight: 100; margin-left: 20px;">{{ selDate2.date }}-{{ selDate2.month + 1}}-{{ selDate2.year }} </span></h3>
+
+                            
+                                    <p></p>
+                                  <xunk-calendar [selectedDate]="selDate2"></xunk-calendar>
+                  
+                                </div>                             
+                            </div>                     
+                          
+    
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12" style="padding-top: 10px;">
+                                    <div style="text-align: right; ">
+                                    <button  class="thm-btn comment-form__btn" (click)="back(steep)"> Atras</button>
+                                    <button type="submit" class="thm-btn comment-form__btn" (click)="checkTwo()"><a >Procesar</a></button>  </div>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

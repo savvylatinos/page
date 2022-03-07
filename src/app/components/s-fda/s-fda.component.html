@@ -1,0 +1,76 @@
+<section class="contact-page" style="padding: 150px 0px 200px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline">FDA </span>
+                        <h2 class="section-title__title">Registro de <br>FDA </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="section-title">
+                        
+                        <h2 class="section-title__title">Solicitud de FDA </h2>
+                    </div>
+                <div class="contact-page__right">
+                    <form  (ngSubmit) ="checkOne()"  [formGroup]="ngFormOne"  [hidden]="steep!=0" action="" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Nombre de la empresa</label>
+                                    <input type="text" class="form-control floating" id="companyName" placeholder="Nombre de la empresa" formControlName="companyName" [(ngModel)]="quote.companyName"required [ngClass]="{ 'is-invalid': submitted && fval.companyName.errors }">
+                                    <div *ngIf="submitted && fval.companyName.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.companyName.errors.required">El nombre es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Persona responsable</label>
+                                    <input type="text" class="form-control floating" id="liableName" placeholder="Nombre completo" formControlName="liableName" [(ngModel)]="quote.liableName"required [ngClass]="{ 'is-invalid': submitted && fval.liableName.errors }">
+                                    <div *ngIf="submitted && fval.liableName.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.liableName.errors.required">El nombre es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="form-group comment-form__input-box">
+                                    <label class="focus-label">
+                                        <span style="color: red;">*</span>
+                                        Dirección</label>
+                                    <input type="text" class="form-control floating" id="addressRespon" placeholder="Dirección" formControlName="addressRespon" [(ngModel)]="quote.addressRespon"required [ngClass]="{ 'is-invalid': submitted && fval.addressRespon.errors }">
+                                    <div *ngIf="submitted && fval.addressRespon.errors" class="invalid-feedback">
+                                        <div *ngIf="fval.addressRespon.errors.required">El nombre es un campo obligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="comment-form__input-box">
+                                <input type="checkbox" name=""><p> Utilice nuestra dirección.</p>
+                                </div>   
+                            </div>
+                            <p>Esta es la persona responsable que se muestra en el número de identificación fiscal.</p>
+                            
+                            
+
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12" style="padding-top: 10px;">
+                                    <div style="text-align: right; ">
+                                        <button type="submit" class="thm-btn comment-form__btn"><a>Siguiente</a></button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,90 @@
+<section class="features-one">
+    <div class="container">
+        <div class="section-title text-center">
+            <span class="section-title__tagline"></span>
+            <h2 class="section-title__title">Indícanos, que trámite requieres?</h2>
+        </div>
+        <div class="row" *ngIf="_uw.card!=undefined && user!=undefined && info!=undefined ">
+            <!--Star        t Single Features One-->
+            <div style="text-align: center;"  [hidden]="!waiting">
+                                                            
+                <img src="assets/assetssavvy/images/tenor.gif"	 style="max-height: 32px;max-width: 32px; text-align: center;	">
+                
+                <p>Por favor, espere...</p>
+                </div>
+                <div [hidden]="user.userType!='corp'" class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms"  >
+                    <div routerLink="../corp"  class="features-one__single" [hidden]="_uw.card.statusCorp!=undefined || waiting" style="cursor: pointer;">
+                        <div class="features-one__single-icon">
+                        <span class="{{info[0].services[0].icon}}"></span>
+                        </div>
+                        <div class="features-one__single-text">
+                            <h4  ><a >Apertura de empresa  C-Corp</a></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="features-one__single" style="color:#fe0988;border:solid;  " [hidden]="_uw.card.statusCorp===undefined || waiting">
+                        <div class="features-one__single-icon" style="color:#fe0988;" >
+                            <span class="{{info[0].services[0].icon}}" style="color:#fe0988;"></span>
+                        </div>
+                        <div class="features-one__single-text">
+                            
+                            <h4  ><a style="color:black;  "  >Apertura de empresa  C-Corp</a></h4>
+                            <span style="color: var(--thm-base);" *ngIf="_uw.card.statusCorp!=undefined">{{_uw.card.statusCorp}}</span>
+                        </div>
+                    </div>
+                </div>
+       
+      
+
+                <div [hidden]="user.userType!='llc' " class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" >
+                    <div routerLink="../llc"  class="features-one__single" style="cursor: pointer;" [hidden]="_uw.card.statusLlc!=undefined || waiting">
+                        <div class="features-one__single-icon">
+                            <span class="{{info[0].services[0].icon}}"></span>
+                        </div>
+                        <div class="features-one__single-text">
+                            
+                            <h4  ><a >Apertura de empresa  LLC</a></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="features-one__single" style="color:#fe0988;border:solid;  " [hidden]="_uw.card.statusLlc===undefined || waiting">
+                        <div class="features-one__single-icon" style="color:#fe0988;" >
+                            <span class="{{info[0].services[0].icon}}" style="color:#fe0988;"></span>
+                        </div>
+                        <div class="features-one__single-text">
+                            
+                            <h4  ><a style="color:black;  "  >Apertura de empresa  LLC</a></h4>
+                            <span style="color: var(--thm-base);" *ngIf="_uw.card.statusLlc!=undefined">{{_uw.card.statusLlc}}</span>
+                        </div>
+                    </div>
+                </div>
+          
+            <div *ngFor="let service of _uw.card.services" class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms" [hidden]="waiting">
+                <div routerLink="../{{service.route}}" class="features-one__single" [hidden]="service.status=='proccess'" style="cursor: pointer;">
+                    <div class="features-one__single-icon">
+                        <span class="{{service.icon}}"></span>
+                    </div>
+                    <div class="features-one__single-text">
+                        <h4 ><a >{{service.Title}}</a></h4>
+                     
+                    </div>
+                </div>
+                <div  style="color:#fe0988;border:solid;  " class="features-one__single" [hidden]="service.status!='proccess'">
+                    <div class="features-one__single-icon"  style="color:#fe0988;" >
+                        <span class="{{service.icon}}" style="color:#fe0988;"></span>
+                    </div>
+                    <div class="features-one__single-text">
+                        <h4 ><a >{{service.Title}}</a></h4>
+                        <span style="color: var(--thm-base);" *ngIf="service.status!=undefined">{{service.status}}</span>
+
+                    </div>
+                </div>
+            </div>
+   
+            <!--End Single Features One-->
+
+      
+            <!--End Single Features One-->
+        </div>
+    </div>
+</section>

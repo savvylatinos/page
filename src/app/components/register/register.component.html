@@ -1,0 +1,129 @@
+
+
+<section class="contact-page" style="padding: 120px 0px 90px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4"  [hidden]="successform">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline" [hidden]="successform">Crear empresa</span>
+                        <h2 class="section-title__title"  [hidden]="successform">Creación y registro<br> de su empresa.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4"  [hidden]="!successform">
+                <div class="contact-page__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline" >Crear empresa</span>
+                        <h2 class="section-title__title"  >Creación y registro <br> de su empresa.</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8" >
+                <section class="meet-teachers-one">
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title">
+        
+                                <h2 class="section-title__title"> 
+                                    <span class="icon-left-arrow" [hidden]="!this.setted || this.successform" (click)="unseted()" style="cursor: pointer;"></span>
+                                    <span class="icon-checked" [hidden]="!this.setted || !this.successform" ></span>
+                                    {{text}}</h2>
+                            </div>
+                            
+                            <div class="col-xl-12 col-lg-12" [hidden]="successform">
+                                <div class="row"[hidden]="this.setted">
+                                    <!--Start Single Contact Details One-->
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div  [ngStyle]="{'border': this.setted && this.actype=='llc' ? '1px solid #f603aa' : ''}" class="contact-details-one__single"(click)="setType('llc')" style="cursor:pointer;">
+                                            <div class="contact-details-one__single-icon"  [ngStyle]="{'color': this.setted && this.actype=='llc' ? '#f603aa' : ''}">
+                                                <span class="icon-user" ></span>
+                                            </div>
+                                            <div class="contact-details-one__single-text">
+                                                <h4><a >LLC</a></h4>
+                                                <p>Individual</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Contact Details One-->
+
+                                    <!--Start Single Contact Details One-->
+                                    <div class="col-xl-6 col-lg-6">
+                                        <div class="contact-details-one__single" (click)="setType('corp')" style="cursor:pointer;"  [ngStyle]="{'border': this.setted && this.actype=='corp' ? '1px solid #f603aa' : ''}">
+                                            <div class="contact-details-one__single-icon"[ngStyle]="{'color': this.setted && this.actype=='corp' ? '#f603aa' : ''}">
+                                                <span class="icon-human-resources"  ></span>
+                                            </div>
+                                            <div class="contact-details-one__single-text">
+                                                 <h4><a >Corporación</a></h4>
+                                                 <p>Empresa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End Single Contact Details One-->
+                                </div>
+                               
+                            </div> 
+                            <div class="row"  [hidden]="!this.setted || successform ">
+                                <div class="col-xl-5 offset-1">
+                                    <form [formGroup]="ngFormSignup" (ngSubmit) ="onRegister()">
+                               
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">e-mail</label>
+                                            <!-- <input type="email" class="form-control floating"> -->
+                                                <input type="email" class="form-control floating" id="email" placeholder="ingresa tu email" formControlName="email" [(ngModel)]="user.email" required [ngClass]="{ 'is-invalid': submitted && fval.email.errors }">
+                                            <div *ngIf="submitted && fval.email.errors" class="invalid-feedback">
+                                                <div *ngIf="fval.email.errors.required">El e-mail es requerido</div>
+                                                <div *ngIf="fval.email.errors.email">Ingrese un email válido</div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group form-focus">
+                                            <label class="focus-label">Contraseña</label>
+                                            <!-- <input type="email" class="form-control floating"> -->
+                                            <input type="password" class="form-control" id="password" formControlName="password" placeholder="*******" [(ngModel)]="user.password" [ngClass]="{ 'is-invalid': submitted && fval.password.errors}" required>
+                                            <div *ngIf="submitted && fval.password.errors"class="invalid-feedback">
+                                                <div ngClass="fval.password.errors.required">
+                                                La contraseña es requerida.
+                                                </div>
+                                            <div *ngIf="fval.password.errors.minlength">La contraseña debe ser de almenos seis (6) caracteres</div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="form-group form-focus">
+                                            <input type="checkbox" (click)="setPolitics()"> <a class="forgot-link" > He leído y acepto los terminos de uso</a>
+                                        </div>
+                                        <!-- <a (click)="onRegister()">crear</a> -->
+                                        <div style="text-align: center;"  [hidden]="!waiting">
+                                                            
+                                            <img src="assets/assetssavvy/images/tenor.gif"	 style="max-height: 32px;max-width: 32px; text-align: center;	">
+                                            
+                                            <p>Por favor, espere...</p>
+                                            </div>
+                                            <div style="text-align: right; padding-top: 10%;">
+                                        <button class="btn btn-primary btn-block btn-lg login-btn" type="submit" disabled="disabled" [hidden]="!waiting &&  politics" style="background-color:#2800dd;">Enviar</button>
+                                        <button class="btn btn-primary btn-block btn-lg login-btn" type="submit" [hidden]="waiting  ||  !politics" style="background-color:#2800dd;">Enviar</button>
+                                        <!-- <div class="login-or">
+                                            <span class="or-line"></span>
+                                            <span class="span-or">o</span>
+                                        </div> -->
+                                    </div>
+                                        <div [hidden]="!isError">
+                                            <div style="color: red;text-align: left;">
+                                            {{message}}
+                                            </div>
+            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                 
+                </section>
+                
+            </div>
+        </div>
+     
+    </div>
+</section>

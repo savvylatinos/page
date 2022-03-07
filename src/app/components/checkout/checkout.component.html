@@ -1,0 +1,182 @@
+
+
+
+
+<section class="registration-one jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%">
+    <div class="registration-one__bg"
+        style="background-image: url(assets/assetssavvy/images/resources/registration-one-bg.jpg);"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="registration-one__left">
+                    <div class="section-title">
+                        <span class="section-title__tagline"></span>
+                        <h2 class="section-title__title">Pago en linea
+                        </h2>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-xl-6 col-lg-6"> 
+                <div class="registration-one__right wow slideInRight" data-wow-delay="100ms"
+                    data-wow-duration="2500ms">
+                    <div class="registration-one__right-form">
+                        <div class="title-box">
+                            <h4>El monto a cancelar para procesar su solicitud es de </h4>
+                        </div>
+                        <div class="form-box">
+                            <section class="">
+                                <div class="information-inner" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="contact-information">
+                                        <h3>$USD {{_uw.amount}}</h3>
+                                         <div class="credit-card">
+                                            <div>
+                                                <div #cardInfo></div>   
+                                                <div class="error" *ngIf="cardError">
+                                                    {{cardError}}
+    
+                                                </div>  
+                                            </div>
+                                            <div>
+                                              <button (click)="onClick()">Pagar</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- checkout-page-section -->
+        <!-- <section class="checkout-page-section">
+            <div class="auto-container">
+                <div class="order-information">
+                    <div class="row clearfix"  [hidden]="sent">                         
+                        <div class="col-lg-4 col-md-12 col-sm-12 right-column">
+                            <div class="order-summary">
+                                <h4>Order Summary</h4>
+                                <div class="inner-box">
+                                    <div class="single-item">
+                                        <figure class="image-box"><img src="assets/assetspenguins/images/background/clean.jpg" alt=""></figure>
+                                        <p>{{_uw.order.serviceType}} cleaning ({{_uw.order.houseSize}})</p>
+                                        <h6>${{_uw.order.amount |  number:'1.0-2' }}</h6>
+                                    </div>
+                                   
+                                </div>
+                                <ul class="total-box clearfix">
+                                    <li>Sub total<span>${{_uw.order.subtotal |  number:'1.0-2' }}</span></li>
+                                    <li>HST  <span>${{_uw.order.subtotal *12/100 |  number:'1.0-2' }}</span></li>
+                                   
+                                </ul>
+                                <div class="tax-box">
+                                    <h5>Total (Including Tax)<span>${{_uw.order.amount |  number:'1.0-2' }}</span></h5>
+                                </div>
+                            
+                            </div>
+                        </div>  
+                           <div class="col-lg-4 col-md-12 col-sm-12 left-column" [hidden]="ccInfo">
+                            <div class="">
+                                <div class="contact-information">
+                                    <h3>Date <span style="font-weight: 100; margin-left: 20px;">{{ selDate.year }}-{{ selDate.month + 1}}-{{ selDate.date }} </span></h3>
+
+                            
+                                    <p></p>
+                                  <xunk-calendar [selectedDate]="selDate"></xunk-calendar>
+                                    
+                                </div>
+                                <div class="acc-content">
+                                    <div class="payment-info">
+                                        <div class="row clearfix">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                      
+                              
+                            </div>
+                            
+                            
+                        </div>
+                         <div class="col-lg-4 col-md-12 col-sm-12 right-column"  [hidden]="ccInfo">
+                             <div class="">
+
+                               <h3>Time <span style="font-weight: 100; margin-left: 20px;"> </span></h3>
+                            <div class="dropdown" >
+                                    <button class="dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="  position: relative; display: inline-block;   font-size: 14px;  line-height: 24px;  font-weight: 600;  color: #0a267a;  text-transform: uppercase;  background: #ffffff;  padding: 16px 34px;  border-radius: 5px;  transition: all 500ms ease;  border: 0px solid #0a267a;  ">
+                                         <i class="flaticon-check-mark"  ></i>
+                                        {{this._uw.order.time}}
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" *ngFor="let item  of serviceHours;let i = index" (click)="setHour(item)"  style="cursor: pointer !important;">{{item}}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="message-btn" [hidden]="ccInfo || !hourSeted">
+                                <button  (click)="setCCInfo()">Continue</button>
+                            </div>
+
+                        </div>
+                      
+                     
+
+                     
+
+                        <div class="col-lg-6 col-md-12 col-sm-12 left-column" [hidden]="!ccInfo">
+                            <div class="information-inner" style="padding-left: 10px; padding-right: 10px;">
+                                <div class="contact-information">
+                                    <h3>CreditCard info</h3>
+                                     <div class="credit-card">
+                                        <div>
+                                            <div #cardInfo></div>   
+                                            <div class="error" *ngIf="cardError">
+                                                {{cardError}}
+
+                                            </div>  
+                                        </div>
+                                        <div>
+                                          <button (click)="onClick()">Pagar</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row clearfix"  [hidden]="!sent">
+                        <div class="col-lg-12 col-md-12 col-sm-12 "   style="text-align: center;">
+                           <div [hidden]="!sent">
+                              <i class="fa fa-check" style="font-size:71px;color: green;align-content: center;text-align: center;"></i>
+                              <span style="margin:30px;font-size: 30px;color: #17ab4b;text-align: center;align-content: center !important;align-items: center;">
+                                Payment succeeded
+                                </span>
+                                     <div>
+                                          <button (click)="end()">Ok</button>
+                                        </div>
+                              </div>
+                              <div [hidden]="sent">
+                              <i class="fa fa-close" style="font-size:71px;color: red;align-content: center;text-align: center;"></i>
+                              <span style="margin:30px;font-size: 30px;color: red;text-align: center;align-content: center !important;align-items: center;">
+                                An error has occurred, please try again
+                                </span>
+                                 <div>
+                                          <button (click)="try()">Try again</button>
+                                        </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section> -->
+
+
+
